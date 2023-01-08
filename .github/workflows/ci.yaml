@@ -1,22 +1,29 @@
 name: Micronaut CI
-
 on: [push]
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-
+        name: Checkout git repository
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: 17
           distribution: 'adopt'
-
       - name: Build with Maven
-        run: mvn --batch-mode compile
-
+        run: mvn --batch-mode install
       - name: Run tests with Maven
         run: mvn --batch-mode test
+      - name: Start application for load Test
+        run: java -jar target/training-service-0.1.jar &
+      - name: Run local k6 test
+        uses: grafana/k6-action@v0.2.0
+        with:
+          filename: loadTest.js
+          flags: --out json=results.json
+      - name: Upload performance test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: k6-report
+          path: results.json
