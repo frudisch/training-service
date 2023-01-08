@@ -1,18 +1,9 @@
-## Micronaut 3.8.0 Documentation
+# Training-Service
 
-- [User Guide](https://docs.micronaut.io/3.8.0/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.8.0/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.8.0/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+Der Training-Service ist ein Prototyp für die verschiedenen Test-Möglichkeiten eines Micronaut Services
 
-## Feature jdbc-hikari documentation
+Der Service bildet zusammen mit dem [Training-UI](https://github.com/frudisch/training-ui) eine Einheit.
 
-- [Micronaut Hikari JDBC Connection Pool documentation](https://micronaut-projects.github.io/micronaut-sql/latest/guide/index.html#jdbc)
+## Aufbau
 
-
-## Feature http-client documentation
-
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
-
-
+Der Service ist ein simpler Micronaut Service. Die Datenhaltung findet für die Tests in einer H2 Datenbank statt.
