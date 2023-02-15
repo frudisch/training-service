@@ -1,6 +1,7 @@
 package de.frudisch.event;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -24,7 +25,8 @@ class EventServiceTest {
     private EventService sut;
 
     @Test
-    public void shouldSelectEventsFromService() {
+    @DisplayName("Should select events using the repository and return the results")
+    public void shouldSelectEventsUsingTheRepositoryAndReturnTheResults() {
         List<Event> expected = List.of(
             new Event(UUID.randomUUID(),
                     LocalDate.of(2023, 1, 26),
