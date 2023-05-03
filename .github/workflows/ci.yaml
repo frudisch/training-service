@@ -18,7 +18,7 @@ jobs:
       - name: Start application for load Test
         run: java -jar target/training-service-0.1.jar &
       - name: Run local k6 test
-        uses: grafana/k6-action@v0.2.0
+        uses: grafana/k6-action@v0.3.0
         with:
           filename: loadTest.js
           flags: --out json=results.json
